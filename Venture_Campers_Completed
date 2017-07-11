@@ -22,7 +22,7 @@ ArrayList <Projectile> shots = new ArrayList <Projectile>();
 int EnemyTimer = 0;
 
 // Set the level and lives variable values.
-int level = 1;
+int level = 0;
 int lives = 3;
 
 
@@ -40,6 +40,7 @@ void setup() {
   fill(230);
   textAlign(CENTER, CENTER);
   textSize(32);
+  
 }
 
 
@@ -66,6 +67,7 @@ void draw() {
     
     // Display the Enemies
     displayEnemies();
+    
     // Display the shots fired
     displayShots();
     
@@ -92,7 +94,7 @@ void keyPressed() {
     p.moveLeft();
   } else if (key == 'd') {
     p.moveRight();
-  } else if (key == ' ') {
+  }else if (key == ' ') {
     shots.add(p.shoot());
   }
 }
@@ -114,8 +116,9 @@ void displayEnemies() {
   }
   if (spinners.size()>0) {
   // If the spinner list is populated, draw the enemies.
-  for (Enemy e : spinners){
-    e.draw();
+  for (Enemy i : spinners){
+      i.draw();
+  }
   }
   EnemyTimer++;
 }
@@ -162,7 +165,7 @@ void checkCollisions() {
     }
     if (e.y > 600) {
       spinners.remove(j);
-      lives--;
+      lives++;
     }
   }
 }
