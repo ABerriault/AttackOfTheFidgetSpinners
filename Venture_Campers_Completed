@@ -165,7 +165,7 @@ void checkCollisions() {
     }
     if (e.y > 600) {
       spinners.remove(j);
-      lives++;
+      lives--;
     }
   }
 }
