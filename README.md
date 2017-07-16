@@ -1,12 +1,45 @@
 # Attack Of The Fidget Spinners
-***
-A game designed in processing to teach students grade 6-8 the basics of coding.
-
-We will look into
+---
+A game written in Processing (Java IDE) for semmy.me/ide online editor. The game is written with numerous errors listed below to help reinforce camper understanding of:
 - variables
-- conditionals
 - loops
-- and basic functions
+- conditionals
+- basic functions
+
+The repository contains a completed version as well as the camper version which they should begin with. The errors are listed below:
+
+Line 24: 
+```Java
+int level = 0;                                                           // Level should be 0
+```
+
+Line 25: 
+```Java
+int lives = 3;                                                           // Lives should be 3
+```
+
+Line 36: 
+```Java
+size(600,600);                                                        // Screen must be set to 600x600
+```
+
+Line 55: 
+```Java
+p.draw();                                                             // Display the player to the screen using its class method.
+```
+
+Line 62: 
+```Java
+text("Lives: "+lives, 0, 0, 150, 50 );                              // Display the lives by adding +lives variable.
+```
+
+
+Line 94-96: 
+```Java
+  } else if (key == 'd') {                                              // Add an else if statement to move the player right.
+    p.moveRight();
+  } else if (key == ' ') {
+```
 
 
 Created by [Andrew Berriault](https://github.com/ABerriault) for *McMaster Venture Engineering & Science*

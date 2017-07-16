@@ -1,8 +1,7 @@
-// Venture 2017
-// Attack of the Fidget Spinners
-// Created By: Andrew Berriault
-// Created For: McMaster Venture Computers & Technology
-
+// Filename: Attack of the Fidget Spinners
+// Camp: Venture Codemakers Advanced
+// Date: Summer 2017
+// Camper Name: 
 // FOR USE WITH: www.semmy.me/ide
 
 /************************************************************************
@@ -22,8 +21,8 @@ ArrayList <Projectile> shots = new ArrayList <Projectile>();
 int EnemyTimer = 0;
 
 // Set the level and lives variable values.
-int level = 100;
-int lives = 0;
+int level = 100;                                                              // Level should be 0
+int lives = 0;                                                                // Lives should be 3
 
 
 /************************************************************************
@@ -34,12 +33,12 @@ int lives = 0;
 *
 ***********************************************************************/
 void setup() {
+                                                                            // Screen must be set to 600x600
   imageMode(CENTER);
   img = loadImage(url, "png");
   fill(230);
   textAlign(CENTER, CENTER);
   textSize(32);
-  
 }
 
 
@@ -53,22 +52,26 @@ void setup() {
 void draw() {
 // Set the background color
   background(0);
+                                                                          // Display the player to the screen using its class method.
   
 // Make sure the game is not over and you have lives.
   if (lives > 0) {
     fill(230);
     
     // Display the number of lives
-    text("Lives: ", 0, 0, 150, 50 );
+    text("Lives: ", 0, 0, 150, 50 );                                      // Display the lives by adding +lives variable.
     // Display the score
     text("Score: "+level, 450, 0, 150, 50 );
     
     // Display the Enemies
+    displayEnemies();
     
     // Display the shots fired
+    displayShots();
     
     // Check the collisions of the shots and the spinners
     checkCollisions();
+    
   } else {
     // Display the Game Over Text & Score
     text("Game Over", 0, 0, 600, 600 );
@@ -88,7 +91,9 @@ void draw() {
 void keyPressed() {
   if (key == 'a') {
     p.moveLeft();
-  } else if (key == ' ') {
+  }                                                                     // Add an else if statement to move the player right.
+  
+  else if (key == ' ') {
     shots.add(p.shoot());
   }
 }
@@ -110,6 +115,9 @@ void displayEnemies() {
   }
   if (spinners.size()>0) {
   // If the spinner list is populated, draw the enemies.
+  for (Enemy i : spinners){
+      i.draw();
+  }
   }
   EnemyTimer++;
 }
@@ -156,7 +164,7 @@ void checkCollisions() {
     }
     if (e.y > 600) {
       spinners.remove(j);
-      lives++;
+      lives--;
     }
   }
 }
@@ -186,7 +194,6 @@ public class Sprite {
 }
  
 public class Player extends Sprite {
- 
   int xSpeed;
  
   public Player(int xArg, int yArg, int wArg, int hArg, int speed) {
@@ -223,7 +230,6 @@ public class Player extends Sprite {
 *
 ***********************************************************************/
 public class Enemy extends Sprite {
- 
   int ySpeed;
   PImage img;
  
