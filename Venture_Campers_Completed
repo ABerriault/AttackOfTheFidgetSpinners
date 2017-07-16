@@ -52,7 +52,7 @@ void setup() {
 void draw() {
 // Set the background color
   background(0);
-  p.draw();
+  p.draw();                                                             // Display the player to the screen using its class method.
   
 // Make sure the game is not over and you have lives.
   if (lives > 0) {
